@@ -149,7 +149,8 @@
             }
         },
         mounted()
-        {
+        {   
+            console.log('mountttttt');
             this.readPosts();
         },
         methods: {
@@ -170,6 +171,7 @@
 
                         $("#add_post_model").modal("hide");
 
+                        this.readPosts();
                     })
                     .catch(error => {
                         this.errors = [];
@@ -211,7 +213,7 @@
                     .then(response => {
  
                         $("#update_post_model").modal("hide");
- 
+                        this.readPosts();
                     })
                     .catch(error => {
                         this.errors = [];
@@ -231,12 +233,12 @@
 
                     axios.delete('/posts/' + this.posts[index].id)
                         .then(response => {
-
-                            this.posts.splice(index, 1);
-
+                            console.log(response);
+                            // this.posts.splice(index, 1);
+                            this.readPosts();
                         })
                         .catch(error => {
-
+                            console.log(error);
                         });
                 }
             }
