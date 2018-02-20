@@ -134,6 +134,11 @@
 
     </div>
 </template>
+<style>
+    body{
+        margin-top: 20px;
+    }
+</style>
 
 <script>
     export default {
